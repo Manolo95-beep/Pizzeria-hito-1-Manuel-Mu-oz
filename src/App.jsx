@@ -1,8 +1,10 @@
 import Navbar from './components/Navbar'
-import Home from './components/Home'
+/*import Home from './components/Home'*/
 import Footer from './components/Footer'
+import Register from './components/Register'
 import 'bootstrap/dist/css/bootstrap.min.css'
-<script src="https://kit.fontawesome.com/ef874fedd9.js" crossorigin="anonymous"></script>
+import Login from './components/Login'
+
 
 
 
@@ -11,7 +13,10 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Home/>
+      {/*<Home/>*/}
+      <Register/>
+      <br></br>
+      <Login/>
       <Footer/>
 
     </>

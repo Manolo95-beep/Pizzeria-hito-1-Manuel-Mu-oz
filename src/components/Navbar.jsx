@@ -6,8 +6,8 @@ const Navbar = () => {
     <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
       
       <div>
-        <button className="btn btn-outline-light me-2">
-          🍕 Home .
+        <button className="btn btn-outline-light me-2" >
+          🍕 Home 
         </button>
 
         {token ? (
@@ -16,7 +16,7 @@ const Navbar = () => {
               🔓 Profile
             </button>
 
-            <button className="btn btn-outline-light">
+            <button className="btn btn-outline-light" href="./Register.jsx">
               🔒 Logout
             </button>
           </>
