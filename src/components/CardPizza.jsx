@@ -1,5 +1,5 @@
 
-const CardPizza = ({name,price,ingredients,img}) => {
+const CardPizza = ({name,price,ingredients,img,descripcion}) => {
   return (
     <div className="card m-3" style={{ width: '18rem' }}>
       
@@ -9,6 +9,12 @@ const CardPizza = ({name,price,ingredients,img}) => {
         <h5 className="card-title">{name}</h5>
 
         <hr />
+
+        <p className="text-center">
+          Descripción: {descripcion}
+        </p>
+
+        <hr/>
 
         <p className="text-center">
           Ingredientes:

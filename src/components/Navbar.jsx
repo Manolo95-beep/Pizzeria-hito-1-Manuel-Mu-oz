@@ -16,7 +16,7 @@ const Navbar = () => {
               🔓 Profile
             </button>
 
-            <button className="btn btn-outline-light" href="./Register.jsx">
+            <button className="btn btn-outline-light" href="../Register.jsx">
               🔒 Logout
             </button>
           </>
@@ -30,8 +30,14 @@ const Navbar = () => {
               🔐 Register
             </button>
           </>
+
+         
         )}
       </div>
+
+      <button className="btn btn-dark btn-outline-light">
+        🛒 Carrito
+      </button>
 
       <button className="btn btn-success">
         🛒 Total: ${total.toLocaleString('es-CL')}
