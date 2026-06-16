@@ -11,7 +11,7 @@ const CardPizza = ({name,price,ingredients,img,descripcion}) => {
         <hr />
 
         <p className="text-center">
-          Descripción: {descripcion}
+          {descripcion}
         </p>
 
         <hr/>

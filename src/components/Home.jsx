@@ -1,28 +1,37 @@
 import Header from "./Header"
 import CardPizza from "./CardPizza"
-import pizzas from "../../pizzas"
+
+import { useEffect, useState } from "react"
 
 const Home = () => {
+
+  useEffect(() => {
+    const getPizzas = async () => {
+      const response = await fetch ("http://localhost:5000/api/pizzas")
+      const data = await response.json ();
+      setPizzas(data);
+    }
+
+    getPizzas();
+  }, []);
+
+  const [pizzas, setPizzas] = useState([])
   return (
     <>
-      <Header />
-      <br></br>
 
-      <div className="d-flex flex-wrap justify-content-center gap-3 mt-4">
-
-      {pizzas.map ((pizza) => (
-        <CardPizza
-          name={pizza.name}
-          descripcion={pizza.desc}
-          price={pizza.price}
-          ingredients={pizza.ingredients}
-          img={pizza.img}
-        />
-      ))
-      }
-      
-
+      <div className="row">
+        {pizzas.map((pizza) => (
+          <CardPizza
+            key={pizza.id}
+            descripcion={pizza.desc}
+            name={pizza.name}
+            price={pizza.price}
+            ingredients={pizza.ingredients}
+            img={pizza.img}
+         />
+       ))}
       </div>
+
     </>
   )
 }
