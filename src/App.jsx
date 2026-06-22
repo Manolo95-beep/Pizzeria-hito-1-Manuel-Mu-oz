@@ -1,11 +1,14 @@
-import Navbar from './components/Navbar'
-/*import Home from './components/Home'*/
-import Footer from './components/Footer'
-/*import Register from './components/Register'*/
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Pizza from './components/Pizza'
-/*import Cart from './components/Cart'/*
-/*import Login from './components/Login'*/
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import Pizza from "./pages/Pizza";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
 
 
 
@@ -14,14 +17,29 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-      {/*<Home/>*/}
-      <Pizza/>
-      {/*<Register/>*/}
-      <br></br>
-      {/*<Login/>*/}
-      {/*<Cart/>*/}
-      <Footer/>
+     <Navbar/>
+
+     <Routes>
+
+
+        <Route path="/" element={<Home />} />
+
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/cart" element={<Cart />} />
+
+        <Route path="/pizza/p001" element={<Pizza />} />
+
+        <Route path="/profile" element={<Profile />} />
+
+        <Route path="/404" element={<NotFound />} />
+
+        <Route path="*" element={<NotFound />} />
+
+
+     </Routes>
 
     </>
   )

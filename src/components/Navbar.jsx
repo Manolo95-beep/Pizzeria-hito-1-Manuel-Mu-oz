@@ -7,13 +7,13 @@ const Navbar = () => {
       
       <div>
         <button className="btn btn-outline-light me-2" >
-          🍕 Home 
+          <link to="/"> 🍕 Home </link> 
         </button>
 
         {token ? (
           <>
             <button className="btn btn-outline-light me-2">
-              🔓 Profile
+              <link to="/profile"> 🔓 Profile </link> 
             </button>
 
             <button className="btn btn-outline-light" href="../Register.jsx">
@@ -23,11 +23,12 @@ const Navbar = () => {
         ) : (
           <>
             <button className="btn btn-outline-light me-2">
-              🔐 Login
+            <link to="/login"> 🔒 Login </link> 
+
             </button>
 
             <button className="btn btn-outline-light">
-              🔐 Register
+            <link to="/register"> 🔐 Register </link> 
             </button>
           </>
 
@@ -36,7 +37,7 @@ const Navbar = () => {
       </div>
 
       <button className="btn btn-dark btn-outline-light">
-        🛒 Carrito
+       <link to="/cart"> 🛒 Carrito </link>  
       </button>
 
       <button className="btn btn-success">
