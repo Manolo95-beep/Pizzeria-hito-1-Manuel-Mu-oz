@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   const total = 25000
@@ -6,42 +7,37 @@ const Navbar = () => {
     <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
       
       <div>
-        <button className="btn btn-outline-light me-2" >
-          <link to="/"> 🍕 Home </link> 
-        </button>
+        <Link className="btn btn-outline-light me-2"  to="/"> 🏡Home  
+                </Link>
 
         {token ? (
           <>
-            <button className="btn btn-outline-light me-2">
-              <link to="/profile"> 🔓 Profile </link> 
-            </button>
-
-            <button className="btn btn-outline-light" href="../Register.jsx">
+            <Link className="btn btn-outline-light me-2" to="/profile"> 👨‍🦱 Profile  
+            </Link>
+.
+            <Link className="btn btn-outline-light" to="/register.jsx">
               🔒 Logout
-            </button>
+            </Link>
           </>
         ) : (
           <>
-            <button className="btn btn-outline-light me-2">
-            <link to="/login"> 🔒 Login </link> 
+            <Link className="btn btn-outline-light me-2" to="/login"> 🔒 Login  
 
-            </button>
+            </Link>
 
-            <button className="btn btn-outline-light">
-            <link to="/register"> 🔐 Register </link> 
-            </button>
+            <Link className="btn btn-outline-light"to="/register"> 🔐 Register 
+            </Link>
           </>
 
          
         )}
       </div>
 
-      <button className="btn btn-dark btn-outline-light">
-       <link to="/cart"> 🛒 Carrito </link>  
-      </button>
+      <Link className="btn btn-dark btn-outline-light" to="/cart"> 🛒 Carrito
+      </Link>
 
       <button className="btn btn-success">
-        🛒 Total: ${total.toLocaleString('es-CL')}
+        💵 Total: ${total.toLocaleString('es-CL')}
       </button>
 
     </nav>

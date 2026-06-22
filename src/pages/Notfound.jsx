@@ -1,17 +1,27 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const Notfound = () => {
+const NotFound = () => {
   return (
-    <div>
-       <h1> ERROR 404 </h1>
+    <div className="d-flex flex-column justify-content-center align-items-center text-center vh-100 bg-dark text-white">
 
-       <h2> Pagina no encontrada </h2>
+      <div className="display-1 fw-bold text-warning">
+        404
+      </div>
 
-       <link to="/">
-        Volver al inicio
-       </link>
+      <h2 className="mb-3">
+        🍕 Ups! Esta pizza no existe
+      </h2>
+
+      <p className="mb-4 text-secondary">
+        La pagina de esta pizza desaparecio, o quizas la robaron por ser las mejores.
+      </p>
+
+      <Link to="/" className="btn btn-warning btn-lg">
+        🏠 Volver al Home
+      </Link>
+
     </div>
-  )
-}
+  );
+};
 
-export default Notfound
+export default NotFound;
