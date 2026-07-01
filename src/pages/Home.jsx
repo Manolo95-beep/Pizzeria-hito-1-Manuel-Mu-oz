@@ -1,3 +1,5 @@
+
+
 import Header from "../components/Header"
 import CardPizza from "../components/CardPizza"
 
@@ -23,11 +25,7 @@ const Home = () => {
         {pizzas.map((pizza) => (
           <CardPizza
             key={pizza.id}
-            descripcion={pizza.desc}
-            name={pizza.name}
-            price={pizza.price}
-            ingredients={pizza.ingredients}
-            img={pizza.img}
+            pizza = {pizza}
          />
        ))}
       </div>

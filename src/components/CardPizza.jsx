@@ -1,17 +1,25 @@
+import { useContext } from "react"
+import { CartContext } from "../CartContext"
 
-const CardPizza = ({name,price,ingredients,img,descripcion}) => {
+import Pizza from "../pages/Pizza"
+
+
+const CardPizza = ({pizza}) => {
+
+    const { addToCart } = useContext(CartContext);
+
   return (
     <div className="card m-3" style={{ width: '18rem' }}>
       
-      <img src={img} className="card-img-top" alt={name} />
+      <img src={pizza.img} className="card-img-top" alt={pizza.name} />
 
       <div className="card-body">
-        <h5 className="card-title">{name}</h5>
+        <h5 className="card-title">{pizza.name}</h5>
 
         <hr />
 
         <p className="text-center">
-          {descripcion}
+          {pizza.desc}
         </p>
 
         <hr/>
@@ -21,7 +29,7 @@ const CardPizza = ({name,price,ingredients,img,descripcion}) => {
         </p>
 
         <ul>
-          {ingredients.map((ingredient, index) => (
+          {pizza.ingredients.map((ingredient, index) => (
             <li key={index}>
               🍕 {ingredient}
             </li>
@@ -31,7 +39,7 @@ const CardPizza = ({name,price,ingredients,img,descripcion}) => {
         <hr />
 
         <h4 className="text-center">
-          ${price.toLocaleString('es-CL')}
+          ${pizza.price.toLocaleString('es-CL')}
         </h4>
 
         <div className="d-flex justify-content-between">
@@ -39,7 +47,9 @@ const CardPizza = ({name,price,ingredients,img,descripcion}) => {
             👀 Ver más
           </button>
 
-          <button className="btn btn-dark">
+          <button 
+            className = "btn btn-dark"
+            onClick = {() => addToCart(pizza)}>
             🛒 Añadir
           </button>
         </div>

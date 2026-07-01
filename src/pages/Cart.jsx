@@ -1,51 +1,24 @@
-
-import { pizzaCart } from "../../pizzas"
+import { useContext} from "react"
+import { CartContext } from "../CartContext"
 import { useState } from "react"
+
+
 
 const Cart = () => {
     
-    const[carro, setCarro] = useState(pizzaCart)
-
-    const aumentarCantidad = (id) =>{
-        const actualizarCarro = carro.map((pizza) =>{
-
-            if (pizza.id === id){
-                return {
-                    ...pizza,
-                    count: pizza.count + 1
-                
-                };
-            }
-            return pizza;
-        })
-
-        setCarro(actualizarCarro)
-    }
-
-    const disminuirCantidad = (id) =>{
-        const actualizarCarro = carro.map((pizza)=>{
-            if (pizza.id === id){
-                return {
-                    ...pizza,
-                    count: pizza.count - 1
-                };
-            }
-
-                return pizza;
-            })
-            .filter((pizza) => pizza.count > 0)
-        setCarro(actualizarCarro);
-    }
-
-    const total = carro.reduce((acc,pizza)=>{
-        return acc + pizza.price * pizza.count}, 0);
+    const {
+        cart,
+        addToCart,
+        removeFromCart,
+        total
+            } = useContext(CartContext);
     
   return (
     <>
 
     <h1> Carrito de compras </h1>
       {
-        carro.map((pizza) =>
+        cart.map((pizza) =>
             <div 
             key={pizza.id}
             style={{
@@ -66,11 +39,12 @@ const Cart = () => {
 
                 <p> Precio: ${pizza.price}</p>
 
-                <p> Cantidad: {pizza.count}</p>
+                <p> Cantidad: {pizza.cantidad}</p>
 
-                <button className="btn btn-dark" onClick={() => aumentarCantidad(pizza.id)}> + </button>
+                <button className="btn btn-dark" onClick={() => addToCart(pizza)}> + </button>
 
-                <button className="btn btn-dark" onClick={() => disminuirCantidad(pizza.id)}> - </button>
+                <button className="btn btn-dark" onClick={() => removeFromCart(pizza.id)}> - </button>
+
                  
 
             </div>
@@ -81,9 +55,10 @@ const Cart = () => {
         )
       }
 
-      <h2> Total: ${total}</h2>
 
       <button className="btn btn-dark"> Pagar </button>
+      <h3> Total: {total }</h3>
+
     </>
   )
 }
